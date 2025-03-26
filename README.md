@@ -2,9 +2,9 @@
 
 ## 📌 Introduction
 
-This small repo demonstrates how to use the [Oliver API](https://oliver.behavioralsignals.com) to send speech data and retrieve predictions related to emotions and behaviors.
+This repo demonstrates how to use the [Oliver API](https://oliver.behavioralsignals.com) to send speech data and retrieve predictions related to emotions and behaviors using Python code.
 
-Oliver API offers predictions related to:
+[Oliver API](https://oliver.behavioralsignals.com) offers predictions related to:
  - speech emotions and behaviors 
  - speech2text transcriptions
  - speech deep fake detections (i.e. if an utterance is a deep fake or bonafide audio)
@@ -18,6 +18,8 @@ Oliver API offers predictions related to:
 - Create a project to obtain:
   - `project_id`
   - `api_token`
+
+(See [here](https://oliver.readme.io/docs/create-a-project-and-api-token) for particular instructions)
 
 Create a config file named `oliver_api.config` in the following format:
 
