@@ -4,6 +4,12 @@
 
 This small repo demonstrates how to use the [Oliver API](https://oliver.behavioralsignals.com) to send speech data and retrieve predictions related to emotions and behaviors.
 
+Oliver API offers predictions related to:
+ - speech emotions and behaviors 
+ - speech2text transcriptions
+ - speech deep fake detections (i.e. if an utterance is a deep fake or bonafide audio)
+
+
 ## ⚙️ Setup Instructions
 
 ### 1. Get API Credentials
@@ -21,6 +27,8 @@ Create a config file named `oliver_api.config` in the following format:
   "api_token": "oar32932fj0isjf023j01f329j"
 }
 ```
+
+and place it with that name in the folder of this repo.
 
 ### 2. Set Up Environment
 
