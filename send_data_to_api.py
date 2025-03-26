@@ -117,7 +117,9 @@ def send_audio_and_get_response(file_path, file_name):
             # Calculate progress percentage
             percentage_processed = min(1.0, elapsed * REALTIME_RATIO / duration)
             print(f"Please wait... {100 * percentage_processed:.1f}% completed", end="\r")
-        print(process_response["status"])
+        elif process_response["status"] == 0: # API busy with another job:
+            print("API is busy, waiting...")
+            
         time.sleep(0.5)
     
     end_time = time.time()
