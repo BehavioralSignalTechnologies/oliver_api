@@ -13,9 +13,7 @@ This repo demonstrates how to use the [Oliver API](https://oliver.behavioralsign
 ### Get API Credentials
 
 - Visit [Oliver API](https://oliver.behavioralsignals.com) and sign up
-- Create a project to obtain  `project_id` and `api_token`
-
-(See [here](https://oliver.readme.io/docs/create-a-project-and-api-token) for particular instructions)
+- Create a project to obtain  `project_id` and `api_token` (See [here](https://oliver.readme.io/docs/create-a-project-and-api-token) for particular instructions)
 
 Then, create a config file named `oliver_api.config` in the following format:
 
