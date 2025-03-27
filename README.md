@@ -1,12 +1,13 @@
 # Oliver API Python Usage Example
 
+![Behavioral Signals Logo](BehavioralSignals_logo_900px.png)
+
 ## 📌 Introduction
 
 This repo demonstrates how to use the [Oliver API](https://oliver.behavioralsignals.com) to send speech data and retrieve predictions related to emotions and behaviors using Python code. [Oliver API](https://oliver.behavioralsignals.com) offers predictions related to:
  - speech emotions and behaviors 
  - speech2text transcriptions
  - speech deep fake detections (i.e. if an utterance is a deep fake or bonafide audio)
-
 
 ## ⚙️ Setup Instructions
 
@@ -89,3 +90,9 @@ Example `*_features.json` (for a single utterance):
   }
 ]
 ```
+
+---
+
+## 🏢 About Behavioral Signals
+
+Behavioral Signals is a company at the forefront of Emotion AI, building technology that enables machines to understand human behavior and emotions from voice. Our mission is to bridge the gap between humans and machines by leveraging advanced speech analysis and behavioral prediction technologies. Learn more at [behavioralsignals.com](https://www.behavioralsignals.com).
