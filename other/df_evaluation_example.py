@@ -4,7 +4,7 @@ Deepfake Evaluation Example
 
 This script evaluates the performance of deepfake detection by:
 1. Processing audio files from bonafide and deepfake folders
-2. Calling the Oliver API to analyze each file
+2. Calling the API to analyze each file
 3. Extracting deepfake posteriors from the API response
 4. Calculating a confusion matrix based on ground truth labels
 """

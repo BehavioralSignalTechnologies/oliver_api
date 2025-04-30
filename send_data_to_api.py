@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Oliver API Client
+Behavioral Signals API Client
 
-This script provides functionality to send audio files to the Oliver API,
-process them, and save the results and extracted features.
+This script provides functionality to send audio files to the 
+Behavioral Signals API, process them, and save the results and extracted features.
 """
 
 # Standard library imports
@@ -21,7 +21,7 @@ import feature_extraction
 # Constants
 REALTIME_RATIO = 10
 BASE_URL = "https://api.behavioralsignals.com/v5"
-CONFIG_FILE = "oliver_api.config"
+CONFIG_FILE = "api.config"
 
 # Load configuration
 with open(CONFIG_FILE) as f:
@@ -39,7 +39,7 @@ HEADERS = {
 
 def send_audio_file(file_path, file_name):
     """
-    Upload an audio file to the Oliver API.
+    Upload an audio file to the API.
     
     Args:
         file_path (str): Path to the audio file
@@ -172,7 +172,7 @@ def send_audio_and_save_response(file_path):
 def main():
     """Main function to parse arguments and process audio files."""
     parser = argparse.ArgumentParser(
-        description="Send audio files to Oliver API for processing"
+        description="Send audio files to Behavioral Signals API for processing"
     )
     parser.add_argument(
         "--input", "-i",
