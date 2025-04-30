@@ -1,11 +1,11 @@
 # Deepfake Evaluation Script
 
-This folder contains the `df_evaluation_example.py` script, designed for evaluating the **Speaker-Agnostic Deep Fake Detection** feature of the [Oliver API](http://oliver.behavioralsignals.com). The script performs batch inference on labeled audio data and reports standard classification metrics.
+This folder contains the `df_evaluation_example.py` script, designed for evaluating the **Speaker-Agnostic Deep Fake Detection** feature of the [Behavioral Signals API](https://platform.behavioralsignals.com/). The script performs batch inference on labeled audio data and reports standard classification metrics.
 
 ## 🔍 Script Overview
 
 `df_evaluation_example.py`:
-- Sends labeled audio data (bonafide & spoofed) to the Oliver API
+- Sends labeled audio data (bonafide & spoofed) to the Behavioral Signals API
 - Collects results from the API
 - Computes performance metrics including:
   - Confusion Matrix
@@ -69,11 +69,11 @@ F1 Score:  0.8421
 
 ## ⚠️ Notes
 
-- This script assumes you've already signed up for the [Oliver API](http://oliver.behavioralsignals.com) and have access to a valid **API key**.
+- This script assumes you've already signed up for the [Behavioral Signals API](https://platform.behavioralsignals.com/) and have access to a valid **API key**.
 - You must also have the `send_data_to_api.py` dependencies installed and configured.
 
 ---
 
 ## 📫 Contact
 
-For questions or support, please refer to the main [Oliver API documentation](http://oliver.behavioralsignals.com) or contact your Behavioral Signals representative.
+For questions or support, please refer to the main [Behavioral Signals API](https://platform.behavioralsignals.com/) or contact your Behavioral Signals representative.

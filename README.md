@@ -1,8 +1,8 @@
-# Oliver API Python Usage Example
+# Behavioral Signals API Python Usage Example
 
 ## 📌 Introduction
 
-This repo demonstrates how to use the [Oliver API](https://oliver.behavioralsignals.com) to send speech data and retrieve predictions related to emotions and behaviors using Python code. [Oliver API](https://oliver.behavioralsignals.com) offers predictions related to:
+This repo demonstrates how to use the [Behavioral Signals API](https://platform.behavioralsignals.com/) to send speech data and retrieve predictions related to emotions and behaviors using Python code. [Behavioral Signals API](https://platform.behavioralsignals.com/) offers predictions related to:
  - speech emotions and behaviors 
  - speech2text transcriptions
  - speech deep fake detections (i.e. if an utterance is a deep fake or bonafide audio)
@@ -11,10 +11,10 @@ This repo demonstrates how to use the [Oliver API](https://oliver.behavioralsign
 
 ### Get API Credentials
 
-- Visit [Oliver API](https://oliver.behavioralsignals.com) and sign up
-- Create a project to obtain  `project_id` and `api_token` (See [here](https://oliver.readme.io/docs/create-a-project-and-api-token) for particular instructions)
+- Visit [Behavioral Signals API](https://platform.behavioralsignals.com/) and sign up
+- Create a project to obtain  `project_id` and `api_token` (See [here](https://behavioralsignals.readme.io/docs/create-a-project-and-api-token) for particular instructions)
 
-Then, create a config file named `oliver_api.config` in the following format:
+Then, create a config file named `api.config` in the following format:
 
 ```json
 {
@@ -44,7 +44,7 @@ python3 send_data_to_api.py -i PATH_TO_AUDIO_FILE
 If the script runs successfully, two JSON files will be generated:
 
 1. `PATH_TO_AUDIO_FILE.json`  
-   Contains the initial response from the OLIVER API.
+   Contains the initial response from the Behavioral Signals API.
 
 2. `PATH_TO_AUDIO_FILE_features.json`  
    Contains an "aggregated" output with predictions per speech utterance.
