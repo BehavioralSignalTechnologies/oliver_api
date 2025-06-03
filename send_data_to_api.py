@@ -91,13 +91,13 @@ def send_audio_and_get_response(file_path, file_name):
         file_name (str): Name to use for the uploaded file
         
     Returns:
-        dict: JSON response with processing results or None if processing failed
+        tuple: (response_dict, audio_duration, processing_time) or (None, 0, 0) if processing failed
     """
     print("Sending audio file to API...")
     upload_response = send_audio_file(file_path, file_name)
     
     if not upload_response:
-        return None
+        return None, 0, 0
     
     print("Processing audio file:")
     start_time = time.time()
@@ -137,7 +137,9 @@ def send_audio_and_get_response(file_path, file_name):
     results_url = f"{BASE_URL}/clients/{PROJECT_ID}/processes/{process_response['pid']}/results"
     results_response = requests.get(results_url, headers=HEADERS)
     
-    return results_response.json()
+    response_json = results_response.json()
+    
+    return response_json, duration, processing_time
 
 def send_audio_and_save_response(file_path):
     """
@@ -147,13 +149,13 @@ def send_audio_and_save_response(file_path):
         file_path (str): Path to the audio file
         
     Returns:
-        dict: JSON response with processing results or None if processing failed
+        tuple: (response_dict, audio_duration, processing_time) or (None, 0, 0) if processing failed
     """
-    response = send_audio_and_get_response(file_path, os.path.basename(file_path))
+    response, audio_duration, processing_time = send_audio_and_get_response(file_path, os.path.basename(file_path))
     
     if not response:
         print(f"Failed to process {file_path}")
-        return None
+        return None, 0, 0
     
     # Save raw API response
     json_file = file_path.replace(".wav", ".json")
@@ -168,7 +170,7 @@ def send_audio_and_save_response(file_path):
         json.dump(features_json, f, indent=4, ensure_ascii=False)
     print(f"Features saved in: {json_features_file}")
     
-    return response
+    return response, audio_duration, processing_time
 def main():
     """Main function to parse arguments and process audio files."""
     parser = argparse.ArgumentParser(
@@ -203,10 +205,39 @@ def main():
         
         print(f"Found {len(wav_files)} .wav files to process")
         
+        # Track total processing time and audio duration
+        total_start_time = time.time()
+        total_audio_duration = 0.0
+        total_processing_time_excluding_upload = 0.0
+        
         for file in wav_files:
             file_path = os.path.join(args.input, file)
             print(f"\nProcessing: {file_path}")
-            send_audio_and_save_response(file_path)
+            response, audio_duration, processing_time = send_audio_and_save_response(file_path)
+            
+            # Accumulate totals if processing was successful
+            if response:
+                total_audio_duration += audio_duration
+                total_processing_time_excluding_upload += processing_time
+        
+        # Calculate total processing time including upload
+        total_end_time = time.time()
+        total_processing_time_including_upload = total_end_time - total_start_time
+        
+        # Print comprehensive statistics
+        print(f"\n{'='*60}")
+        print(f"BATCH PROCESSING SUMMARY:")
+        print(f"Total files processed: {len(wav_files)}")
+        print(f"Total audio duration: {total_audio_duration:.1f} seconds")
+        print(f"Total processing time (excluding upload): {total_processing_time_excluding_upload:.1f} seconds")
+        print(f"Total processing time (including upload): {total_processing_time_including_upload:.1f} seconds")
+        
+        if total_audio_duration > 0:
+            realtime_ratio_excluding_upload = total_audio_duration / total_processing_time_excluding_upload
+            realtime_ratio_including_upload = total_audio_duration / total_processing_time_including_upload
+            print(f"Real-time ratio (excluding upload): {realtime_ratio_excluding_upload:.1f}")
+            print(f"Real-time ratio (including upload): {realtime_ratio_including_upload:.1f}")
+        print(f"{'='*60}")
     else:
         print(f"Error: Invalid input path '{args.input}'")
 
