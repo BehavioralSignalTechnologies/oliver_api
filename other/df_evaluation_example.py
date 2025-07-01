@@ -42,7 +42,7 @@ def process_audio_file(file_path):
     file_name = os.path.basename(file_path)
     
     # Send audio to API and get response
-    response = send_audio_and_get_response(file_path, file_name)
+    response, _, _ = send_audio_and_get_response(file_path, file_name)
     
     if not response:
         print(f"Failed to process {file_path}")
